@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1477755405602334762}
   - component: {fileID: 4550142651032233175}
   m_Layer: 0
-  m_Name: Facebook
+  m_Name: Snapchat
   m_TagString: Icon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
