@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -31,6 +30,6 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateScoreText()
     {
-        
+        Debug.Log(score);
     }
 }
