@@ -1,14 +1,18 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    public GameObject looseScreen;
+    public GameObject gameMenu;
     
     private Rigidbody2D _rb;
     private GameObject _player;
     private Vector2 _input;
     private ScoreManager _scoreManager;
     private Animator _animator;
+    private bool _isDead;
     
     private void Start()
     {
@@ -19,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
+        if (_isDead)
+        {
+            return;
+        }
+        
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dirToMouse = mousePos - (Vector2)transform.position;
         dirToMouse.Normalize();
@@ -47,11 +56,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_isDead)
+        {
+            return;
+        }
+        
         _rb.AddForce(_input * speed);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("KillIcon"))
+        {
+            _isDead = true;
+            Destroy(gameMenu);
+            Destroy(collision.gameObject);
+            LossScript lossScript = collision.GetComponent<LossScript>();
+            if (lossScript != null)
+            {
+                looseScreen.SetActive(true);
+            }
+        }
+        
         if (collision.CompareTag("Icon"))
         {
             LossScript lossScript = collision.GetComponent<LossScript>();

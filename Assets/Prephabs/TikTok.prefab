@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4550142651032233175}
   m_Layer: 0
   m_Name: TikTok
-  m_TagString: Icon
+  m_TagString: KillIcon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConnect: 0
-  points: 20
+  points: 0
 --- !u!58 &4550142651032233175
 CircleCollider2D:
   m_ObjectHideFlags: 0
