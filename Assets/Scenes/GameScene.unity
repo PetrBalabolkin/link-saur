@@ -3359,9 +3359,9 @@ MonoBehaviour:
   - {fileID: 2055595163}
   - {fileID: 1704294961}
   kill: {fileID: 1481132756}
-  countConnects: 80
-  countDisconnects: 40
-  countKills: 20
+  countConnects: 120
+  countDisconnects: 60
+  countKills: 30
   player: {fileID: 1060993853}
 --- !u!4 &1985261165
 Transform:

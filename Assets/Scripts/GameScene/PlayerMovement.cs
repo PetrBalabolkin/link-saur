@@ -69,19 +69,19 @@ namespace GameScene
         {
             if (collision.CompareTag("KillIcon") && collision.isTrigger)
             {
-                Destroy(gameMenu);
-                Destroy(collision.gameObject);
                 _isDead = true;
                 LossScript lossScript = collision.GetComponent<LossScript>();
                 if (lossScript != null)
                 {
                     looseScreen.SetActive(true);
                 }
+                
+                Destroy(gameMenu);
+                Destroy(collision.gameObject);
             }
         
             if (collision.CompareTag("Icon") && collision.isTrigger)
             {
-                Destroy(collision.gameObject);
                 LossScript lossScript = collision.GetComponent<LossScript>();
                 if (lossScript != null)
                 {
@@ -94,6 +94,8 @@ namespace GameScene
                         _scoreManager.DecreaseScore(lossScript.points);
                     }
                 }
+                
+                Destroy(collision.gameObject);
             }
         }
     }
