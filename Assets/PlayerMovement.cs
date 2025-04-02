@@ -8,11 +8,13 @@ public class PlayerMovement : MonoBehaviour
     private GameObject _player;
     private Vector2 _input;
     private ScoreManager _scoreManager;
+    private Animator _animator;
     
     private void Start()
     {
         _rb = this.gameObject.GetComponent<Rigidbody2D>();
         _scoreManager = FindObjectOfType<ScoreManager>();
+        _animator = this.gameObject.GetComponent<Animator>();
     }
     
     private void Update()
@@ -32,7 +34,15 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        
+
+        if (_input.y != 0 || _input.x != 0)
+        {
+            _animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            _animator.SetBool("isRunning", false);
+        }
     }
 
     private void FixedUpdate()
