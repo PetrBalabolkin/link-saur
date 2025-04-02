@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class LossScript : MonoBehaviour
+namespace GameScene
 {
-    public bool isConnect;
-    public int points;
+    public class LossScript : MonoBehaviour
+    {
+        public bool isConnect;
+        public int points;
+    }
 }

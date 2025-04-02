@@ -1,26 +1,28 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOver : MonoBehaviour
+namespace GameScene
 {
-    public TMP_Text scoreText;
-    private ScoreManager _scoreManager;
-    
-    private void Start()
+    public class GameOver : MonoBehaviour
     {
-        _scoreManager = FindObjectOfType<ScoreManager>();
-        scoreText.text = _scoreManager.score.ToString();
-    }
+        public TMP_Text scoreText;
+        private ScoreManager _scoreManager;
+    
+        private void Start()
+        {
+            _scoreManager = FindObjectOfType<ScoreManager>();
+            scoreText.text = _scoreManager.score.ToString();
+        }
 
-    public void PlayAgain()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+        public void PlayAgain()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     
-    public void QuitGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        public void QuitGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 }

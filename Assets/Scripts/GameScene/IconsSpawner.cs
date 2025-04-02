@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.Mathematics.Geometry;
 using UnityEngine;
 
 public class IconsSpawner : MonoBehaviour

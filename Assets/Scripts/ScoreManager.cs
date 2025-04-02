@@ -27,6 +27,7 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.Save();
             UpdateMaxScoreText();
         }
+        
         UpdateScoreText();
     }
 
@@ -40,6 +41,7 @@ public class ScoreManager : MonoBehaviour
                 score = 0;
             }
         }
+        
         UpdateScoreText();
     }
 

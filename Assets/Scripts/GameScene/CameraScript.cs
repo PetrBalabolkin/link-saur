@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class CameraScript : MonoBehaviour
+namespace GameScene
 {
-    public GameObject target;
-    public float smoothing;
-
-    private void FixedUpdate()
+    public class CameraScript : MonoBehaviour
     {
-        transform.position = Vector3.Lerp(transform.position, target.transform.position, smoothing);
+        public GameObject target;
+        public float smoothing;
+
+        private void FixedUpdate()
+        {
+            transform.position = Vector3.Lerp(transform.position, target.transform.position, smoothing);
+        }
     }
 }
