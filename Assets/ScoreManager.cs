@@ -1,17 +1,33 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
     public int score = 0;
+    public int maxScore = 0;
+    public TMP_Text scoreText;
+    public TMP_Text maxScoreText;
 
     private void Start()
     {
+        maxScore = PlayerPrefs.GetInt("maxScore", 0);
+        score = 0;
         UpdateScoreText();
+        UpdateMaxScoreText();
     }
 
     public void IncreaseScore(int amount)
     {
         score += amount;
+
+        if (score > maxScore)
+        {
+            maxScore = score;
+            PlayerPrefs.SetInt("maxScore", maxScore);
+            PlayerPrefs.Save();
+            UpdateMaxScoreText();
+        }
         UpdateScoreText();
     }
 
@@ -30,6 +46,11 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateScoreText()
     {
-        Debug.Log(score);
+        scoreText.text = "Score: " + score.ToString();
+    }
+
+    private void UpdateMaxScoreText()
+    {
+        maxScoreText.text = "Maximum: " + maxScore.ToString();
     }
 }
